@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Current Weather</h1>
+        <p>Temperature: {{ current_weather.temp_c }}°C</p>
+        <p>Condition: {{ current_weather.condition.text }}</p>
+
+        <h1>5-Day Forecast</h1>
+        {% for day in forecast %}
+            <div class="card mb-3">
+                <div class="card-header">
+                    {{ day.date }}
+                </div>
+                <div class="card-body">
+                    <p>Max Temperature: {{ day.day.maxtemp_c }}°C</p>
+                    <p>Min Temperature: {{ day.day.mintemp_c }}°C</p>
+                    <p>Condition: {{ day.day.condition.text }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
